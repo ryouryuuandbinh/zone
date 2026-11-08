@@ -1,0 +1,358 @@
+.shot-editor {
+  --shot-panel: #101215;
+  --shot-text: #f6f8fa;
+  --shot-muted: #b9c1c9;
+  --shot-border: rgb(255 255 255 / 16%);
+  --shot-accent: #a4e5cb;
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: #090b0c;
+  color: var(--shot-text);
+  font:
+    13px/1.4 'Segoe UI',
+    sans-serif;
+  color-scheme: dark;
+  isolation: isolate;
+  outline: 0;
+}
+
+.shot-stage-holder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+.shot-stage {
+  position: relative;
+  touch-action: none;
+  user-select: none;
+  cursor: crosshair;
+}
+
+.shot-stage.shot-tool-select {
+  cursor: default;
+}
+
+.shot-stage.shot-tool-eraser {
+  cursor: cell;
+}
+
+.shot-stage canvas,
+.shot-stage-guides {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.shot-stage-guides {
+  overflow: visible;
+}
+
+.shot-crop-mask {
+  fill: rgb(0 0 0 / 53%);
+}
+
+.shot-outline {
+  fill: none;
+  stroke-width: 1.5;
+  stroke: var(--shot-accent);
+}
+
+.shot-outline-object {
+  stroke: #caadff;
+}
+
+.shot-outline-object .shot-outline-border {
+  stroke-dasharray: 5 3;
+}
+
+.shot-outline-handle {
+  fill: #181d21;
+}
+
+.shot-region-size {
+  position: absolute;
+  z-index: 2;
+  transform: translateY(calc(-100% - 5px));
+  padding: 4px 7px;
+  border: 1px solid #253b35;
+  border-radius: 5px;
+  background: #182824;
+  color: #d9fff0;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.shot-region-size.inside {
+  transform: translate(5px, 5px);
+}
+
+.shot-toolbar {
+  border: 1px solid var(--shot-border);
+  border-radius: 13px;
+  background: var(--shot-panel);
+  box-shadow: 0 12px 40px rgb(0 0 0 / 42%);
+}
+
+.shot-selection-hint {
+  position: absolute;
+  inset: 18px 12px auto;
+  z-index: 3;
+  width: fit-content;
+  max-width: calc(100% - 24px);
+  margin: 0 auto;
+  padding: 8px 14px;
+  border-radius: 9px;
+  background: #1a1b20;
+  color: var(--shot-text);
+  font-size: 13px;
+  text-align: center;
+  pointer-events: none;
+}
+
+.shot-actions,
+.shot-button,
+.shot-field,
+.shot-toolbar-tools,
+.shot-inspector {
+  display: flex;
+  align-items: center;
+}
+
+.shot-actions {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 6px;
+  padding: 6px 2px 1px;
+  border-top: 1px solid var(--shot-border);
+}
+
+.shot-button,
+.shot-icon-button,
+.shot-field input,
+.shot-field select,
+.shot-format select {
+  box-sizing: border-box;
+  min-width: 0;
+  border: 1px solid var(--shot-border);
+  border-radius: 7px;
+  background: #202429;
+  color: var(--shot-text);
+  font: inherit;
+}
+
+.shot-button,
+.shot-icon-button {
+  min-height: 32px;
+  padding: 4px 9px;
+  cursor: pointer;
+}
+
+.shot-button {
+  justify-content: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.shot-button:hover:not(:disabled),
+.shot-icon-button:hover:not(:disabled) {
+  border-color: #6e7781;
+  background: #31373d;
+}
+
+.shot-button:focus-visible,
+.shot-icon-button:focus-visible,
+.shot-field input:focus-visible,
+.shot-field select:focus-visible,
+.shot-format select:focus-visible {
+  outline: 2px solid var(--shot-accent);
+  outline-offset: 2px;
+}
+
+.shot-button:disabled,
+.shot-icon-button:disabled,
+.shot-inspector:disabled {
+  opacity: 0.48;
+  cursor: default;
+}
+
+.shot-button.shot-primary,
+.shot-button.shot-primary:hover:not(:disabled) {
+  border-color: #72bda2;
+  background: #a4e5cb;
+  color: #0c241b;
+  font-weight: 700;
+}
+
+.shot-button.shot-cancel {
+  padding-inline: 6px;
+  border-color: transparent;
+  background: transparent;
+}
+
+.shot-button.shot-button-small {
+  min-height: 27px;
+  max-width: 11rem;
+  overflow: hidden;
+  padding-inline: 7px;
+  font-size: 11px;
+  text-overflow: ellipsis;
+}
+
+.shot-format select,
+.shot-field select {
+  min-height: 30px;
+  padding: 3px 5px;
+}
+
+.shot-bottom {
+  position: absolute;
+  inset: auto 10px 10px;
+  z-index: 3;
+  width: fit-content;
+  max-width: calc(100% - 20px);
+  margin-inline: auto;
+  pointer-events: none;
+}
+
+.shot-status {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto 6px;
+  padding: 3px 9px;
+  border-radius: 6px;
+  background: #101215;
+  color: #edf3f7;
+  font-size: 12px;
+  text-align: center;
+}
+
+.shot-status:empty {
+  display: none;
+}
+
+.shot-toolbar {
+  max-width: 100%;
+  padding: 6px;
+  pointer-events: auto;
+}
+
+.shot-toolbar-tools {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3px;
+}
+
+.shot-icon-button {
+  display: grid;
+  place-items: center;
+  width: 31px;
+  height: 31px;
+  min-height: 0;
+  padding: 0;
+  border-color: transparent;
+  background: transparent;
+}
+
+.shot-icon-button[aria-pressed='true'],
+.shot-icon-button[aria-pressed='true']:hover:not(:disabled) {
+  border-color: #548e7a;
+  background: #263b35;
+  color: #dbfff1;
+}
+
+.shot-toolbar-divider {
+  width: 1px;
+  height: 19px;
+  margin-inline: 2px;
+  background: var(--shot-border);
+}
+
+.shot-inspector {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px 8px;
+  min-width: 0;
+  margin: 5px 0 0;
+  padding: 6px 2px 0;
+  border: 0;
+  border-top: 1px solid var(--shot-border);
+}
+
+.shot-inspector-title {
+  color: var(--shot-text);
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.shot-inspector-hint,
+.shot-field {
+  color: var(--shot-muted);
+  font-size: 11px;
+}
+
+.shot-field {
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.shot-field input,
+.shot-field select {
+  min-height: 25px;
+  padding: 2px 4px;
+  font-size: 11px;
+}
+
+.shot-field-number input {
+  width: 4rem;
+}
+
+.shot-field-text input {
+  width: min(10rem, 34vw);
+}
+
+.shot-field input[type='color'] {
+  width: 30px;
+  height: 25px;
+  padding: 2px 3px;
+}
+
+.shot-field input[type='checkbox'] {
+  min-height: auto;
+  margin: 0;
+  accent-color: var(--shot-accent);
+}
+
+.shot-loading {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  z-index: 3;
+  width: max-content;
+  max-width: 86vw;
+  margin: 0;
+  padding: 9px 13px;
+  transform: translate(-50%, -50%);
+  border: 1px solid var(--shot-border);
+  border-radius: 7px;
+  background: var(--shot-panel);
+}
+
+.shot-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}

@@ -1,0 +1,47 @@
+# Tài liệu chính thức đã tham khảo
+
+Các API cần được đối chiếu với phiên bản dependency trong lockfile. Trang tài liệu có thể tiếp tục cập nhật sau ngày triển khai.
+
+- [Tauri 2 — Windows prerequisites](https://v2.tauri.app/start/prerequisites/#windows): MSVC, Windows SDK và WebView2.
+- [Tauri 2 — Vite integration](https://v2.tauri.app/start/frontend/vite/): development URL và frontend build.
+- [Tauri 2 — Window customization](https://v2.tauri.app/learn/window-customization/): cửa sổ không viền và cấu hình native.
+- [Tauri — WebviewWindowBuilder](https://docs.rs/tauri/latest/tauri/webview/struct.WebviewWindowBuilder.html): cảnh báo deadlock khi tạo WebView trong synchronous command/event handler trên Windows.
+- [Tauri 2 — JavaScript Window API](https://v2.tauri.app/reference/javascript/api/namespacewindow/): scale factor, window events và cursor events.
+- [Tauri 2 — System tray](https://v2.tauri.app/learn/system-tray/): Rust tray feature và menu events.
+- [Tauri 2 — Store](https://v2.tauri.app/plugin/store/): preferences cục bộ.
+- [Tauri 2 — Capabilities](https://v2.tauri.app/security/capabilities/): phân quyền theo cửa sổ.
+- [Tauri 2 — Global shortcut](https://v2.tauri.app/plugin/global-shortcut/): đăng ký, hủy và xung đột shortcut.
+- [Tauri 2 — Autostart](https://v2.tauri.app/plugin/autostart/): startup tùy chọn.
+- [Motion for React](https://motion.dev/docs/react): API `motion/react`.
+- [Motion — Layout animations](https://motion.dev/docs/react-layout-animations): `layout`, `layoutId` và `LayoutGroup`.
+- [Motion — Accessibility](https://motion.dev/docs/react-accessibility): reduced motion.
+- [React — API reference](https://react.dev/reference/react): component lifecycle và hooks.
+- [Vite — Getting started](https://vite.dev/guide/): yêu cầu Node.js và pipeline build.
+- [Tailwind — Vite integration](https://tailwindcss.com/docs/installation/using-vite): plugin Vite và CSS import của Tailwind 4.
+- [Zustand — create](https://zustand.docs.pmnd.rs/reference/apis/create.html): typed store và selector.
+- [TypeScript — strict](https://www.typescriptlang.org/tsconfig/strict.html): nhóm kiểm tra strict.
+- [Lucide — React](https://lucide.dev/guide/react): icon React dạng SVG và tree shaking.
+- [Microsoft — WM_NCHITTEST](https://learn.microsoft.com/en-us/windows/win32/inputdev/wm-nchittest): giới hạn cùng thread của `HTTRANSPARENT`, tọa độ màn hình âm.
+- [Microsoft — SetWindowRgn](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-setwindowrgn): hình học cửa sổ và quyền sở hữu HRGN.
+- [Microsoft — timeBeginPeriod](https://learn.microsoft.com/en-us/windows/win32/api/timeapi/nf-timeapi-timebeginperiod): ghép begin/end, phạm vi ảnh hưởng timer và giới hạn trên Windows 11.
+- [Microsoft — Layered windows](https://learn.microsoft.com/en-us/windows/win32/winmsg/window-features#layered-windows): hit testing theo alpha và `WS_EX_TRANSPARENT`.
+- [Tauri 2 — Dialog](https://v2.tauri.app/plugin/dialog/): native file/folder picker từ Rust.
+- [Tauri 2 — Calling Rust from the Frontend](https://v2.tauri.app/develop/calling-rust/): truyền ảnh xuất dưới dạng nhị phân và kiểm tra dữ liệu trong Rust.
+- [ShareX — Image Editor](https://getsharex.com/docs/image-editor): tham khảo ngữ nghĩa các công cụ, gồm chọn vùng, chú thích và cắt bỏ dải ngang/dọc.
+- [Microsoft — BitBlt](https://learn.microsoft.com/en-us/windows/win32/api/wingdi/nf-wingdi-bitblt): sao chép pixel màn hình vào bitmap GDI trên worker.
+- [Microsoft — CreateDIBSection](https://learn.microsoft.com/en-us/windows/win32/api/wingdi/nf-wingdi-createdibsection): bitmap 32 bit cho ảnh chụp theo thứ tự hàng từ trên xuống.
+- [Microsoft — DwmFlush](https://learn.microsoft.com/en-us/windows/win32/api/dwmapi/nf-dwmapi-dwmflush): chờ các cập nhật trình bày đang chờ của ứng dụng trước khi đọc ảnh.
+- [Tauri 2 — Opener](https://v2.tauri.app/plugin/opener/): mở đường dẫn được backend xác thực.
+- [Tauri 2 — Single instance](https://v2.tauri.app/plugin/single-instance/): tránh nhiều phiên ghi cùng kho dữ liệu.
+- [Microsoft — AddClipboardFormatListener](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-addclipboardformatlistener): nhận `WM_CLIPBOARDUPDATE` thay vì polling.
+- [Microsoft — Clipboard formats](https://learn.microsoft.com/en-us/windows/win32/dataxchg/clipboard-formats): Unicode text, DIB và file-drop formats.
+- [Microsoft — Cloud Clipboard and Clipboard History Formats](https://learn.microsoft.com/en-us/windows/win32/dataxchg/clipboard-formats#cloud-clipboard-and-clipboard-history-formats): Zone ghi `CanUploadToCloudClipboard=0` khi chép lại để Windows giữ nội dung trên thiết bị.
+- [Microsoft — AppData operations for packaged desktop apps](https://learn.microsoft.com/en-us/windows/msix/desktop/desktop-to-uwp-behind-the-scenes#appdata-operations-on-windows-10-version-1903-and-later): Windows có thể chuyển tệp AppData sang vùng riêng của gói ứng dụng.
+- [Tauri 2 — Asynchronous URI scheme protocol](https://docs.rs/tauri/2.12.5/tauri/struct.Builder.html#method.register_asynchronous_uri_scheme_protocol): WebView yêu cầu thumbnail theo ID, Rust đọc ảnh ngoài luồng giao diện.
+- [Microsoft — TaskDialogIndirect](https://learn.microsoft.com/en-us/windows/win32/api/commctrl/nf-commctrl-taskdialogindirect): yêu cầu Common Controls v6. `build.rs` nhúng manifest cho test harness MSVC, tránh lỗi loader trước khi chạy test.
+- [Cargo — rustc-link-arg](https://doc.rust-lang.org/cargo/reference/build-scripts.html#rustc-link-arg): áp dụng linker flags cho executable và unit test.
+- [Microsoft — Window stations](https://learn.microsoft.com/en-us/windows/win32/winstation/window-stations): mỗi station có clipboard riêng; station không tương tác không hiển thị UI hay nhận input.
+- [Microsoft — CreateWindowStationW](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-createwindowstationw): tạo station mới, `CWF_CREATE_ONLY` và giới hạn quyền tạo tên mới.
+- [Microsoft — SetThreadDesktop](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-setthreaddesktop): chuyển thread test sang desktop thuộc station kiểm thử, không switch input desktop.
+- [Microsoft — EmptyClipboard](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-emptyclipboard): điểm thay thế nội dung clipboard và chuyển ownership cho cửa sổ đang mở clipboard.
+- [Rust — AtomicU8 compare_exchange](https://doc.rust-lang.org/stable/std/sync/atomic/type.AtomicU8.html#method.compare_exchange): phân xử hủy và bắt đầu native commit bằng atomic state transition.
